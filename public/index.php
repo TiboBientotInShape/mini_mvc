@@ -16,6 +16,7 @@ $routes = [
     ['GET', '/login', [Mini\Controllers\AuthController::class, 'loginForm']],
     ['POST', '/login', [Mini\Controllers\AuthController::class, 'login']],
     ['GET', '/logout', [Mini\Controllers\AuthController::class, 'logout']],
+    ['POST', '/cart/validate', [Mini\Controllers\CartController::class, 'validate']],
 ];
 
 $router = new Router($routes);
