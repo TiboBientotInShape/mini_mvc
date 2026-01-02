@@ -8,7 +8,6 @@ use Mini\Models\Product;
 
 class CartController extends Controller
 {
-    // Ajouter au panier
     public function add(): void
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
@@ -29,14 +28,12 @@ class CartController extends Controller
         exit;
     }
 
-    // NOUVEAU : Supprimer du panier
     public function remove(): void
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
 
         $id = (int)($_POST['product_id'] ?? 0);
 
-        // Si l'article est dans le panier, on le supprime (unset)
         if (isset($_SESSION['panier'][$id])) {
             unset($_SESSION['panier'][$id]);
         }
@@ -45,7 +42,6 @@ class CartController extends Controller
         exit;
     }
 
-    // Afficher le panier
     public function index(): void
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
@@ -59,7 +55,7 @@ class CartController extends Controller
             if ($product) {
                 $prix = $product['prix'] * $qty;
                 $fullCart[] = [
-                    'id' => $id, // <--- IMPORTANT : On passe l'ID pour le bouton supprimer
+                    'id' => $id,
                     'nom' => $product['nom'],
                     'prix_unitaire' => $product['prix'],
                     'quantite' => $qty,

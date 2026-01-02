@@ -18,10 +18,10 @@
     <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1>
 
     <nav>
-        <a href="/">🏠 Accueil</a>
-        <a href="/cart" style="color: #007bff;">🛒 Mon Panier</a>
+        <a href="/">Accueil</a>
+        <a href="/cart" style="color: #007bff;">Mon Panier</a>
         
-        <a href="/register" style="color: green; margin-left: 20px;">📝 Inscription</a>
+        <a href="/register" style="color: green; margin-left: 20px;">Inscription</a>
     </nav>
 </header>
 
